@@ -1,7 +1,10 @@
 package com.example.kotlinlesson1
 
+import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.AttributeSet
+import android.util.Log
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -11,20 +14,24 @@ class MainActivity : AppCompatActivity() {
         var field1 = 5
         val field2 = 5
 
-        //field2 = 45
+
         field1 = 21
 
-        val test1 = Test(1,2)
-        val test2 = Test(1,2)
-
-        //val newI = test1.getValI()
-        val newI2 = test1.valI
-        test1.varI = newI2
-        //test1.valI = newI2
-        //test1.serVarI(newI)
+        val test1 = Test()
+        test1.name()
 
 
     }
 }
 
-class Test constructor(val valI: Int, var varI: Int ){}
+//class Test constructor(val valI: Int, var varI: Int ){}
+class Test constructor(){
+    private lateinit var valI: String
+    //var varI: Int
+    fun name(){
+        valI = "тест шмест"
+        Log.d("logs", valI)
+    }
+}
+
+class Button @JvmOverloads constructor(context: Context, attributeSet: AttributeSet?=null, defstyleAttr: Int=0)
