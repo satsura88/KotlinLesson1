@@ -7,14 +7,12 @@ import android.util.AttributeSet
 import android.util.Log
 
 
-class MainActivity : AppCompatActivity() {
+internal class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         val field = 5
-
-
         val test = Test()
         val newTest = NewTest("", "")
         test.name()
@@ -26,6 +24,8 @@ class MainActivity : AppCompatActivity() {
 
 //class Test constructor(val valI: Int, var varI: Int ){}
 open class Test (){
+
+    protected open val protString = ""
 
     constructor(field: String):this()
     constructor(field: String, field2: String):this(field)
@@ -40,6 +40,9 @@ open class Test (){
 }
 
 class NewTest(field0: String, field2: String):Test(field0,field2){
+
+    public override val protString:String =""
+
     var newField:String = ""
     get(){
         return "$field get"
