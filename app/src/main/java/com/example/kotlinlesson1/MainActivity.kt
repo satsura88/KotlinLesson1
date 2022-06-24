@@ -6,31 +6,49 @@ import android.os.Bundle
 import android.util.AttributeSet
 import android.util.Log
 
+
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        var field1 = 5
-        val field2 = 5
+        val field = 5
 
 
-        field1 = 21
-
-        val test1 = Test()
-        test1.name()
-
+        val test = Test()
+        val newTest = NewTest("", "")
+        test.name()
+        Log.d("logs", (newTest as NewTest).newField)   // cast
+        Log.d("logs", "${newTest is NewTest}")    // instanceOf
 
     }
 }
 
 //class Test constructor(val valI: Int, var varI: Int ){}
-class Test constructor(){
+open class Test (){
+
+    constructor(field: String):this()
+    constructor(field: String, field2: String):this(field)
+    constructor(field: String, field2: String, field3: String):this(field,field2)
+
     private lateinit var valI: String
     //var varI: Int
     fun name(){
         valI = "тест шмест"
         Log.d("logs", valI)
+    }
+}
+
+class NewTest(field0: String, field2: String):Test(field0,field2){
+    var newField:String = ""
+    get(){
+        return "$field get"
+    }
+    set(value){
+        field = "$value set"
+    }
+    init{
+        newField = "newtest"
     }
 }
 
