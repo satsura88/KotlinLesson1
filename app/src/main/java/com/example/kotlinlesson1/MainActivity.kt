@@ -1,7 +1,6 @@
 package com.example.kotlinlesson1
 
 import android.content.Context
-import android.graphics.Color.green
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.AttributeSet
@@ -54,6 +53,58 @@ internal class MainActivity : AppCompatActivity() {
             WeatherType.SNOWY -> TODO()
             WeatherType.HAILY -> TODO()
         }
+
+        //циклы
+        val daysOfWeek = listOf("Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday")
+
+        Log.d("logs","-------------")
+        daysOfWeek.forEach {
+            Log.d("logs","$it")
+        }
+
+        Log.d("logs","-------------")
+        repeat(daysOfWeek.size) {
+            Log.d("logs","${daysOfWeek[it]}")
+        }
+
+        Log.d("logs","-------------")
+        for(i in daysOfWeek){
+            Log.d("logs","$i ")
+        }
+
+        Log.d("logs","-------------")
+        for(i in daysOfWeek.indices){
+            Log.d("logs","${daysOfWeek[i]}")
+        }
+
+        Log.d("logs","-------------")
+        for(i in 0.. daysOfWeek.size-1){
+            Log.d("logs","${daysOfWeek[i]}")
+        }
+        Log.d("logs","-------------")
+        for(i in 0 until daysOfWeek.size){
+            Log.d("logs","${daysOfWeek[i]}")
+        }
+
+        Log.d("logs","-------------")
+        for(i in daysOfWeek.size-1 downTo 0){
+            Log.d("logs","${daysOfWeek[i]}")
+        }
+
+        Log.d("logs","-------------")
+        for(i in daysOfWeek.size-1 until 0 step 1){
+            Log.d("logs","${daysOfWeek[i]}")
+        }
+
+        var counter = daysOfWeek.size-1
+        while (--counter>0){
+            Log.d("logs","${daysOfWeek[counter]}")
+        }
+
+        counter = daysOfWeek.size-1
+        do{
+            Log.d("logs","${daysOfWeek[counter]}")
+        }while (--counter>0)
     }
 
     enum class WeatherType {
