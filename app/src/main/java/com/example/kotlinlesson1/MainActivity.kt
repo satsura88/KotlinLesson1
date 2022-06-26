@@ -20,7 +20,19 @@ internal class MainActivity : AppCompatActivity() {
             }
         })
 
+        val vvodData = 1..100
+        val primer = 5
+        val WTV = when (primer) {
+            in vvodData -> {
+                "входит"
+            }
+            else -> {
+                "не входит"
+            }
+        }
+
         val dataClass = NoteKotlin("title", "note", R.color.black)
+        val dataClassNew = dataClass.copy(color = R.color.white, note = "noteNew", title = "titleNew")
 
         val alex = object {
             val name = "Alex"
@@ -28,6 +40,48 @@ internal class MainActivity : AppCompatActivity() {
         }
         alex.age = 34
         //View.OnClickListener
+        var result = "congr"
+        toStringJava(alex.age)
+
+        val enumEl = WeatherType.CLOUDY
+        val today = when (enumEl) {
+            WeatherType.SUNNY -> TODO()
+            WeatherType.RAINY -> TODO()
+            WeatherType.CLOUDY -> {
+                "облачно"
+            }
+            WeatherType.MISTY -> TODO()
+            WeatherType.SNOWY -> TODO()
+            WeatherType.HAILY -> TODO()
+        }
+    }
+
+    enum class WeatherType {
+        SUNNY,
+        RAINY,
+        CLOUDY,
+        MISTY,
+        SNOWY,
+        HAILY
+    }
+
+    fun toStringJava(age:Int): String{ //java подход
+        var result = "congr"
+        if (age==20){
+            result = "nice"
+        }else{
+            result = "not nice"
+        }
+        return result
+    }
+    fun toStringKotlin(age:Int): String{ //kotlin подход
+        return if (age==20){
+            "nice"
+            "nice";
+            "nice"
+        }else{
+            "not nice"
+        }
     }
 }
 
