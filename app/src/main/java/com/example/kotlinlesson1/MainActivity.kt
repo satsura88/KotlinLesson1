@@ -1,27 +1,33 @@
 package com.example.kotlinlesson1
 
 import android.content.Context
+import android.graphics.Color.green
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.AttributeSet
 import android.util.Log
+import android.view.View
+import androidx.appcompat.widget.AppCompatButton
 
 
 internal class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        findViewById<AppCompatButton>(R.id.btn).setOnClickListener(object : View.OnClickListener{
+            override fun onClick(v: View?) {
 
-        val field = 5
-        val test = Test()
-        val newTest = NewTest("", "")
-        test.name()
-        Log.d("logs", (newTest as NewTest).newField)   // cast
-        Log.d("logs", "${newTest is NewTest}")    // instanceOf
+            }
+        })
 
-        NewTest.Name.staticField
-        SingleNewTest.protString
+        val dataClass = NoteKotlin("title", "note", R.color.black)
 
+        val alex = object {
+            val name = "Alex"
+            var age = 20
+        }
+        alex.age = 34
+        //View.OnClickListener
     }
 }
 
