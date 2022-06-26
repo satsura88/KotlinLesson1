@@ -19,6 +19,9 @@ internal class MainActivity : AppCompatActivity() {
         Log.d("logs", (newTest as NewTest).newField)   // cast
         Log.d("logs", "${newTest is NewTest}")    // instanceOf
 
+        NewTest.Name.staticField
+        SingleNewTest.protString
+
     }
 }
 
@@ -38,6 +41,9 @@ open class Test (){
         Log.d("logs", valI)
     }
 }
+object SingleNewTest{
+    val protString:String = ""
+}
 
 class NewTest(field0: String, field2: String):Test(field0,field2){
 
@@ -52,6 +58,10 @@ class NewTest(field0: String, field2: String):Test(field0,field2){
     }
     init{
         newField = "newtest"
+    }
+
+    companion object Name{
+        const val staticField = "статика"
     }
 }
 

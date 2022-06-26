@@ -1,7 +1,6 @@
 package com.example.kotlinlesson1;
 
 import org.jetbrains.annotations.NotNull;
-
 import kotlin.jvm.internal.Intrinsics;
 
 public class NoteJava {
